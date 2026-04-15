@@ -1,6 +1,6 @@
 To create Next.js project:
-1. npm create next-app@latest sociofy
-2. cd sociofy
+1. npm create next-app@latest sharenext
+2. cd sharenext
 3. npm run dev
 
 To install dependencies:
