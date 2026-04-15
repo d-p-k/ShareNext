@@ -1,0 +1,38 @@
+To create Next.js project:
+1. npm create next-app@latest socially
+2. cd socially
+3. npm run dev
+
+To install dependencies:
+1. npm install @clerk/nextjs (go to https://clerk.com/docs/nextjs/getting-started/quickstart)
+2. npm install tailwindcss @tailwindcss/vite (go to https://tailwindcss.com/docs/installation/using-vite)
+3. npx shadcn@latest init
+4. npm install next-themes
+5. npm install prisma --save-dev
+6. npm install @prisma/client
+7. npx prisma init
+8. npx prisma generate (after creating schema in prisma/schema.prisma file)
+9. npm i @prisma/adapter-pg
+10. npm i date-fns
+11. npm install uploadthing @uploadthing/react
+
+To push schema to database:
+1. npx prisma db push
+
+To add shadcn ui components:
+1. npx shadcn@latest add button
+2. npx shadcn@latest add card
+3. npx shadcn@latest add sheet
+4. npx shadcn@latest add avatar
+5. npx shadcn@latest add separator
+6. npx shadcn@latest add textarea
+7. npx shadcn@latest add alert-dialog
+8. npx shadcn@latest add skeleton
+9. npx shadcn@latest add scroll-area
+10. npx shadcn@latest add tabs
+11. npx shadcn@latest add dialog
+12. npx shadcn@latest add input
+13. npx shadcn@latest add label
+
+Best practices for using Prisma Client in Next.js development:
+Go to https://www.prisma.io/docs/orm/more/troubleshooting/nextjs

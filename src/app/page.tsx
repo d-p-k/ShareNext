@@ -1,25 +1,29 @@
-import { Show, SignInButton, SignUpButton, UserButton } from "@clerk/nextjs";
-import Image from "next/image";
+import { getPosts } from "@/actions/post.action";
+import { getDbUserId } from "@/actions/user.action";
+import CreatePost from "@/components/CreatePost";
+import PostCard from "@/components/PostCard";
+import WhoToFollow from "@/components/WhoToFollow";
+import { currentUser } from "@clerk/nextjs/server";
 
-export default function Home() {
+export default async function Home() {
+  const user = await currentUser();
+  const posts = await getPosts();
+  const dbUserId = await getDbUserId();
+
   return (
-    <div>
-      <h1 className="text-3xl font-bold underline">Hello world!</h1>
-      <Show when="signed-out">
-        <SignInButton mode="modal">
-          <button className="bg-blue-700 text-white rounded-full font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 cursor-pointer">
-            Sign In
-          </button>
-        </SignInButton>
-        <SignUpButton mode="modal">
-          <button className="bg-purple-700 text-white rounded-full font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 cursor-pointer">
-            Sign Up
-          </button>
-        </SignUpButton>
-      </Show>
-      <Show when="signed-in">
-        <UserButton />
-      </Show>
+    <div className="grid grid-cols-1 lg:grid-cols-10 gap-6">
+      <div className="lg:col-span-6">
+        {user ? <CreatePost /> : null}
+        <div className="space-y-6">
+          {posts.map((post) => (
+            <PostCard key={post.id} post={post} dbUserId={dbUserId} />
+          ))}
+        </div>
+      </div>
+
+      <div className="hidden lg:block lg:col-span-4 sticky top-20">
+        <WhoToFollow />
+      </div>
     </div>
   );
 }

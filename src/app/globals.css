@@ -1,6 +1,8 @@
 @import "tailwindcss";
-@import "tw-animate-css";
+@import "uploadthing/tw/v4";
 @import "shadcn/tailwind.css";
+
+@source "../../node_modules/@uploadthing/react/dist";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -127,4 +129,8 @@
   html {
     @apply font-sans;
   }
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
